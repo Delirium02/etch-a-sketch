@@ -5,6 +5,11 @@ btn.classList.add('btn')
 btn.textContent = "Custom grid size";
 document.body.insertBefore(btn, container);
 
+function getRandomColor(color) {
+    color = `${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}`;
+    return `rgb(${color})`;
+}
+
 function makeGrid(size) {
     container.innerHTML = '';
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -14,7 +19,7 @@ function makeGrid(size) {
         const box = document.createElement('div');
         box.classList.add('box');
         box.addEventListener('mouseover', () => {
-            box.style.backgroundColor = 'black';
+            box.style.backgroundColor = getRandomColor();
         });
         container.appendChild(box);
     }
