@@ -1,13 +1,23 @@
 const container = document.getElementById('container');
 
 const btn = document.createElement('button');
-btn.classList.add('btn')
+btn.classList.add('btn');
 btn.textContent = "Custom grid size";
 document.body.insertBefore(btn, container);
+
+const resetBtn = document.createElement('button');
+resetBtn.classList.add('resetBtn');
+resetBtn.textContent = "Reset grid";
+container.after(resetBtn);
 
 function getRandomColor(color) {
     color = `${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}`;
     return `rgb(${color})`;
+}
+
+function gradualDarken() {
+    const opacity = getRandomColor()
+    opacity.style.backgroundColor += 0.1;
 }
 
 function makeGrid(size) {
@@ -38,3 +48,7 @@ btn.addEventListener("click", () => {
     }
     
 });
+
+resetBtn.addEventListener("click", () => {
+    makeGrid(16);
+})
