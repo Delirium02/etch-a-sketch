@@ -10,12 +10,14 @@ resetBtn.classList.add("resetBtn");
 resetBtn.textContent = "Reset grid";
 container.after(resetBtn);
 
+// Generate a random RGB color
 function getRandomColor() {
   return `${Math.floor(Math.random() * 256)}, ${Math.floor(
     Math.random() * 256
   )}, ${Math.floor(Math.random() * 256)}`;
 }
 
+// Create the grid based on user input size
 function makeGrid(size) {
   container.innerHTML = "";
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -44,6 +46,7 @@ function makeGrid(size) {
 
 makeGrid(16);
 
+// Event listeners for buttons
 btn.addEventListener("click", () => {
   let newSize = parseInt(prompt("Enter column x rows size"));
 
@@ -54,6 +57,7 @@ btn.addEventListener("click", () => {
   }
 });
 
+// Reset grid to default size
 resetBtn.addEventListener("click", () => {
   makeGrid(16);
 });
